@@ -1,2 +1,2 @@
 # whatsapp-support
-WordPress WhatApp Chat Support
+WordPress WhatsApp Chat Support

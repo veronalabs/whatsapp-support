@@ -1,0 +1,146 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WhatsApp Support\n"
+"POT-Creation-Date: 2018-04-16 11:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Your Name <you@example.com>\n"
+"Language-Team: Creame <hola@crea.me>\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:"
+"1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Language: \n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Poedit-SearchPath-0: ."
+
+#: admin/class-whatsappsupport-admin.php:136
+msgid "Telephone"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:137 admin/class-whatsappsupport-admin.php:237
+msgid "Mobile only"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:138 admin/class-whatsappsupport-admin.php:359
+msgid "Call to action"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:139
+msgid "Delay"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:140 admin/class-whatsappsupport-admin.php:363
+msgid "Message"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:141 admin/class-whatsappsupport-admin.php:249
+msgid "Position on screen"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:168
+msgid "Settings saved"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:180
+msgid ""
+"From here you can configure the behavior of the WhatsApp button on your site."
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:192
+msgid ""
+"Contact phone number. <strong>The button will not be shown if it's empty."
+"</strong>"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:202
+msgid ""
+"Hello 👋\n"
+"Can we help you?"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:203
+msgid ""
+"<strong>Optional.</strong> Text to invite the user to use the contact via "
+"WhatsApp."
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:204
+msgid ""
+"You can use formatting styles like in WhatsApp: _<em>italic</em>_ *<strong>"
+"bold</strong>* ~<del>strikethrough</del>~"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:214
+msgid "milliseconds"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:215
+msgid ""
+"The <strong>Call to action</strong> will only be displayed once when the "
+"user exceeds the estimated delay on a page. It will also be displayed when "
+"the user stops the cursor over the WhatsApp button."
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:225
+msgid "Hi {SITE}! I need more info about {TITLE}"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:226
+msgid "<strong>Optional.</strong> Default message to start the conversation."
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:227
+msgid ""
+"You can use vars <code>{SITE} {URL} {TITLE}</code> that will be replaced "
+"with the values of the current page."
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:239
+msgid "Only display the button on mobile devices"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:251
+msgid "Right"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:253
+msgid "Left"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:278
+msgid "Settings"
+msgstr ""
+
+#. Name of the plugin
+#: admin/class-whatsappsupport-admin.php:326
+msgid "WhatsApp Support"
+msgstr ""
+
+#: admin/class-whatsappsupport-admin.php:368
+#, php-format
+msgid "Hide on this %s"
+msgstr ""
+
+#. Description of the theme
+msgid "Add support to your clients directly with WhatsApp."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://crea.me/productos/whatsapp-support/"
+msgstr ""
+
+#. Author of the plugin
+msgid "Creame"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://crea.me"
+msgstr ""
