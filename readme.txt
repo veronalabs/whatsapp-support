@@ -1,4 +1,4 @@
-=== WhatsApp Support ===
+=== WP WhatsApp Support ===
 Contributors: mostafa.s1990
 Donate link: https://soufi.me/donate
 Tags: whatsapp, button, chat, support, contact

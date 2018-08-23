@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       WhatsApp Support
+ * Plugin Name:       WP WhatsApp Support
  * Plugin URI:        https://wordpress.org/plugins/whatsapp-support/
  * Description:       Add support to your clients directly with WhatsApp.
  * Version:           1.0
