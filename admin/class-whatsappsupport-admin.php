@@ -261,9 +261,8 @@ class WhatsAppSupport_Admin {
 	 * @return   void
 	 */
 	public function add_menu() {
-
-		add_options_page('WhatsApp Support', 'WhatsApp Support', 'manage_options', 'whatsappsupport', array( $this, 'options_page' ));
-
+        add_menu_page('WhatsApp Support', 'WhatsApp', 'manage_options', 'whatsapp-support', array( $this, 'options_page' ), plugin_dir_url( __FILE__ ).'/img/menu-icon.svg');
+        add_submenu_page( 'whatsapp-support', 'WhatsApp Support', 'WhatsApp', 'manage_options', 'whatsapp-support', array( $this, 'options_page' ));
 	}
 
 	/**
