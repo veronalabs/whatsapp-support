@@ -4,7 +4,7 @@
  * Plugin URI:        https://wordpress.org/plugins/whatsapp-support/
  * Description:       Add support to your clients directly with WhatsApp.
  * Version:           1.0
- * Author:            Verona Labs
+ * Author:            VeronaLabs
  * Author URI:        https://veronalabs.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
