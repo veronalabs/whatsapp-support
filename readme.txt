@@ -3,7 +3,7 @@ Contributors: mostafa.s1990, ghasemi71ir, mehrshaddarzi
 Donate link: https://soufi.me/donate
 Tags: whatsapp, button, chat, support, contact
 Requires at least: 3.0.1
-Tested up to: 4.9.4
+Tested up to: 5.0
 Requires PHP: 5.3
 Stable tag: 1.1
 License: GPLv2 or later
