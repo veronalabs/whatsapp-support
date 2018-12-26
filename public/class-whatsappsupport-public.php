@@ -8,7 +8,6 @@
  *
  * @package    WhatsAppSupport
  * @subpackage WhatsAppSupport/public
- * @author     Creame <hola@crea.me>
  */
 class WhatsAppSupport_Public {
 

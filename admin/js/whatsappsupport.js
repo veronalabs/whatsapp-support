@@ -21,7 +21,7 @@
           });
         }
       },
-      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.9/js/utils.js"
+      utilsScript: "../wp-content/plugins/wp-whatsapp-support/admin/js/utils.js"
     });
 
     $phone.on("keyup change", function () {

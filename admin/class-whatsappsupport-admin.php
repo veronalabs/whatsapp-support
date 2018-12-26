@@ -9,7 +9,6 @@
  * @since      1.0.0
  * @package    WhatsAppSupport
  * @subpackage WhatsAppSupport/admin
- * @author     Creame <hola@crea.me>
  */
 class WhatsAppSupport_Admin {
 
@@ -18,7 +17,7 @@ class WhatsAppSupport_Admin {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
+	 * @var      string $plugin_name The ID of this plugin.
 	 */
 	private $plugin_name;
 
@@ -27,7 +26,7 @@ class WhatsAppSupport_Admin {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
+	 * @var      string $version The current version of this plugin.
 	 */
 	private $version;
 
@@ -36,7 +35,7 @@ class WhatsAppSupport_Admin {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      array    $settings    The current settings of this plugin.
+	 * @var      array $settings The current settings of this plugin.
 	 */
 	private $settings;
 
@@ -45,7 +44,7 @@ class WhatsAppSupport_Admin {
 	 *
 	 * @since    1.2.0
 	 * @access   private
-	 * @var      boolean    $enhanced_phone    Use enhanced phone input.
+	 * @var      boolean $enhanced_phone Use enhanced phone input.
 	 */
 	private $enhanced_phone;
 
@@ -53,8 +52,9 @@ class WhatsAppSupport_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param    string    $plugin_name       The name of this plugin.
-	 * @param    string    $version           The version of this plugin.
+	 *
+	 * @param    string $plugin_name The name of this plugin.
+	 * @param    string $version The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
 
@@ -97,10 +97,10 @@ class WhatsAppSupport_Admin {
 	 *
 	 * @since    1.2.0
 	 */
-	public function enqueue_styles($hook) {
+	public function enqueue_styles( $hook ) {
 
-		if ( 'settings_page_whatsappsupport' == $hook && $this->enhanced_phone ) {
-			wp_enqueue_style( 'intl-tel-input', 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.15/css/intlTelInput.css', array(), null, 'all' );
+		if ( 'toplevel_page_whatsapp-support' == $hook && $this->enhanced_phone ) {
+			wp_enqueue_style( 'intl-tel-input', WHATSAPPSUPPORT_URL . 'admin/css/intlTelInput.css', array(), null, 'all' );
 		}
 
 	}
@@ -110,10 +110,9 @@ class WhatsAppSupport_Admin {
 	 *
 	 * @since    1.2.0
 	 */
-	public function enqueue_scripts($hook) {
-
-		if ( 'settings_page_whatsappsupport' == $hook && $this->enhanced_phone ) {
-			wp_enqueue_script( 'intl-tel-input', 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.15/js/intlTelInput.min.js', array( 'jquery' ), null, true );
+	public function enqueue_scripts( $hook ) {
+		if ( 'toplevel_page_whatsapp-support' == $hook && $this->enhanced_phone ) {
+			wp_enqueue_script( 'intl-tel-input', WHATSAPPSUPPORT_URL . 'admin/js/intlTelInput.min.js', array( 'jquery' ), null, true );
 			wp_enqueue_script( 'whatsappsupport-admin', plugin_dir_url( __FILE__ ) . 'js/whatsappsupport.js', array( 'intl-tel-input' ), $this->version, true );
 		}
 
@@ -127,18 +126,18 @@ class WhatsAppSupport_Admin {
 	 * @access   public
 	 * @return   void
 	 */
-	public function settings_init(){
+	public function settings_init() {
 
 		register_setting( 'whatsappsupport', 'whatsappsupport', array( $this, 'settings_validate' ) );
 		add_settings_section( 'whatsappsupport_section', null, array( $this, 'section_text' ), 'whatsappsupport' );
 
-		$field_names = 	array(
-			'telephone'      => __( 'Telephone', 'whatsapp-support' ),
-			'mobile_only'    => __( 'Mobile only', 'whatsapp-support' ),
-			'message_text'   => __( 'Call to action', 'whatsapp-support' ),
-			'message_delay'  => __( 'Delay', 'whatsapp-support' ),
-			'message_send'   => __( 'Message', 'whatsapp-support' ),
-			'position'       => __( 'Position on screen', 'whatsapp-support' ),
+		$field_names = array(
+			'telephone'     => __( 'Telephone', 'whatsapp-support' ),
+			'mobile_only'   => __( 'Mobile only', 'whatsapp-support' ),
+			'message_text'  => __( 'Call to action', 'whatsapp-support' ),
+			'message_delay' => __( 'Delay', 'whatsapp-support' ),
+			'message_send'  => __( 'Message', 'whatsapp-support' ),
+			'position'      => __( 'Position on screen', 'whatsapp-support' ),
 		);
 
 		foreach ( $this->settings as $key => $value ) {
@@ -154,15 +153,15 @@ class WhatsAppSupport_Admin {
 	 * @since    1.0.0
 	 * @return   array
 	 */
-	public function settings_validate($input) {
+	public function settings_validate( $input ) {
 
-		if ( !array_key_exists( 'mobile_only', $input) ){
+		if ( ! array_key_exists( 'mobile_only', $input ) ) {
 			$input['mobile_only'] = 'no';
 		}
-		$input['telephone']     = sanitize_text_field($input['telephone']);
-		$input['message_text']  = trim($input['message_text']);
-		$input['message_delay'] = intval($input['message_delay']);
-		$input['message_send']  = trim($input['message_send']);
+		$input['telephone']     = sanitize_text_field( $input['telephone'] );
+		$input['message_text']  = trim( $input['message_text'] );
+		$input['message_delay'] = intval( $input['message_delay'] );
+		$input['message_send']  = trim( $input['message_send'] );
 		$input['position']      = $input['position'] != 'left' ? 'right' : 'left';
 
 		add_settings_error( 'whatsappsupport', 'settings_updated', __( 'Settings saved', 'whatsapp-support' ), 'updated' );
@@ -189,7 +188,7 @@ class WhatsAppSupport_Admin {
 	public function field_telephone() {
 		$name = $this->enhanced_phone ? '' : 'whatsappsupport[telephone]';
 		echo '<input id="whatsappsupport_phone" name="' . $name . '" value="' . $this->settings['telephone'] . '" type="text" style="width:15em;height:28px;line-height:1;">' .
-			'<p class="description">' . __( "Contact phone number. <strong>The button will not be shown if it's empty.</strong>", 'whatsapp-support' ) . '</p>';
+		     '<p class="description">' . __( "Contact phone number. <strong>The button will not be shown if it's empty.</strong>", 'whatsapp-support' ) . '</p>';
 	}
 
 	/**
@@ -200,8 +199,8 @@ class WhatsAppSupport_Admin {
 	 */
 	public function field_message_text() {
 		echo '<textarea name="whatsappsupport[message_text]" rows="3" class="regular-text" placeholder="' . esc_attr__( "Hello 👋\nCan we help you?", 'whatsapp-support' ) . '">' . $this->settings['message_text'] . '</textarea>' .
-			'<p class="description">' . __( '<strong>Optional.</strong> Text to invite the user to use the contact via WhatsApp.', 'whatsapp-support' ) . '</p>' .
-			'<p>' . __( 'You can use formatting styles like in WhatsApp: _<em>italic</em>_ *<strong>bold</strong>* ~<del>strikethrough</del>~', 'whatsapp-support' ) . '</p>';
+		     '<p class="description">' . __( '<strong>Optional.</strong> Text to invite the user to use the contact via WhatsApp.', 'whatsapp-support' ) . '</p>' .
+		     '<p>' . __( 'You can use formatting styles like in WhatsApp: _<em>italic</em>_ *<strong>bold</strong>* ~<del>strikethrough</del>~', 'whatsapp-support' ) . '</p>';
 	}
 
 	/**
@@ -212,7 +211,7 @@ class WhatsAppSupport_Admin {
 	 */
 	public function field_message_delay() {
 		echo '<input name="whatsappsupport[message_delay]" value="' . $this->settings['message_delay'] . '" class="small-text" type="number" min="0"> ' . __( 'milliseconds', 'whatsapp-support' ) .
-			'<p class="description"> ' . __( 'The <strong>Call to action</strong> will only be displayed once when the user exceeds the estimated delay on a page. It will also be displayed when the user stops the cursor over the WhatsApp button.', 'whatsapp-support' ) . '</p>';
+		     '<p class="description"> ' . __( 'The <strong>Call to action</strong> will only be displayed once when the user exceeds the estimated delay on a page. It will also be displayed when the user stops the cursor over the WhatsApp button.', 'whatsapp-support' ) . '</p>';
 	}
 
 	/**
@@ -223,8 +222,8 @@ class WhatsAppSupport_Admin {
 	 */
 	public function field_message_send() {
 		echo '<textarea name="whatsappsupport[message_send]" rows="3" class="regular-text" placeholder="' . esc_attr__( "Hi {SITE}! I need more info about {TITLE}", 'whatsapp-support' ) . '">' . $this->settings['message_send'] . '</textarea>' .
-			'<p class="description">' . __( '<strong>Optional.</strong> Default message to start the conversation.', 'whatsapp-support' ) . '</p>' .
-			'<p>' . __( 'You can use vars <code>{SITE} {URL} {TITLE}</code> that will be replaced with the values of the current page.', 'whatsapp-support' ) . '</p>';
+		     '<p class="description">' . __( '<strong>Optional.</strong> Default message to start the conversation.', 'whatsapp-support' ) . '</p>' .
+		     '<p>' . __( 'You can use vars <code>{SITE} {URL} {TITLE}</code> that will be replaced with the values of the current page.', 'whatsapp-support' ) . '</p>';
 	}
 
 	/**
@@ -235,8 +234,8 @@ class WhatsAppSupport_Admin {
 	 */
 	public function field_mobile_only() {
 		echo '<fieldset><legend class="screen-reader-text"><span>' . __( 'Mobile only', 'whatsapp-support' ) . '</span></legend>' .
-			'<label><input name="whatsappsupport[mobile_only]" value="yes" type="checkbox"' . checked( 'yes', $this->settings['mobile_only'], false ) . '> ' .
-			__('Only display the button on mobile devices', 'whatsapp-support' ) . '</label></fieldset>';
+		     '<label><input name="whatsappsupport[mobile_only]" value="yes" type="checkbox"' . checked( 'yes', $this->settings['mobile_only'], false ) . '> ' .
+		     __( 'Only display the button on mobile devices', 'whatsapp-support' ) . '</label></fieldset>';
 	}
 
 	/**
@@ -247,10 +246,10 @@ class WhatsAppSupport_Admin {
 	 */
 	public function field_position() {
 		echo '<fieldset><legend class="screen-reader-text"><span>' . __( 'Position on screen', 'whatsapp-support' ) . '</span></legend>' .
-			'<p><label><input name="whatsappsupport[position]" value="right" type="radio"' . checked( 'right', $this->settings['position'], false ) . '> ' .
-			__('Right', 'whatsapp-support' ) . '</label>' .
-			'<br><label><input name="whatsappsupport[position]" value="left" type="radio"' . checked( 'left', $this->settings['position'], false ) . '> ' .
-			__('Left', 'whatsapp-support' ) . '</label></p></fieldset>';
+		     '<p><label><input name="whatsappsupport[position]" value="right" type="radio"' . checked( 'right', $this->settings['position'], false ) . '> ' .
+		     __( 'Right', 'whatsapp-support' ) . '</label>' .
+		     '<br><label><input name="whatsappsupport[position]" value="left" type="radio"' . checked( 'left', $this->settings['position'], false ) . '> ' .
+		     __( 'Left', 'whatsapp-support' ) . '</label></p></fieldset>';
 	}
 
 	/**
@@ -261,8 +260,8 @@ class WhatsAppSupport_Admin {
 	 * @return   void
 	 */
 	public function add_menu() {
-        add_menu_page('WhatsApp Support', 'WhatsApp', 'manage_options', 'whatsapp-support', array( $this, 'options_page' ), plugin_dir_url( __FILE__ ).'/img/menu-icon.svg');
-        add_submenu_page( 'whatsapp-support', 'WhatsApp Support', 'WhatsApp', 'manage_options', 'whatsapp-support', array( $this, 'options_page' ));
+		add_menu_page( 'WhatsApp Support', 'WhatsApp', 'manage_options', 'whatsapp-support', array( $this, 'options_page' ), plugin_dir_url( __FILE__ ) . '/img/menu-icon.svg' );
+		add_submenu_page( 'whatsapp-support', 'WhatsApp Support', 'WhatsApp', 'manage_options', 'whatsapp-support', array( $this, 'options_page' ) );
 	}
 
 	/**
@@ -276,6 +275,7 @@ class WhatsAppSupport_Admin {
 
 		$settings_link = '<a href="options-general.php?page=' . $this->plugin_name . '">' . __( 'Settings', 'whatsapp-support' ) . '</a>';
 		array_unshift( $links, $settings_link );
+
 		return $links;
 
 	}
@@ -289,17 +289,17 @@ class WhatsAppSupport_Admin {
 	 */
 	function options_page() {
 		?>
-			<div class="wrap">
-				<h1>WhatsApp Support</h1>
+        <div class="wrap">
+            <h1>WhatsApp Support</h1>
 
-				<form method="post" id="whatsappsupport_form" action="options.php">
-					<?php
-					settings_fields('whatsappsupport');
-					do_settings_sections('whatsappsupport');
-					submit_button();
-					?>
-				</form>
-			</div>
+            <form method="post" id="whatsappsupport_form" action="options.php">
+				<?php
+				settings_fields( 'whatsappsupport' );
+				do_settings_sections( 'whatsappsupport' );
+				submit_button();
+				?>
+            </form>
+        </div>
 		<?php
 	}
 
@@ -344,28 +344,26 @@ class WhatsAppSupport_Admin {
 		$metadata = array_merge( array(
 			'message_text' => '',
 			'message_send' => '',
-			'hide' => false
+			'hide'         => false
 		), $metadata );
 
-		$post_type = get_post_type_object( get_post_type( $post->ID ) );
+		$post_type      = get_post_type_object( get_post_type( $post->ID ) );
 		$post_type_name = function_exists( 'mb_strtolower' ) ?
 			mb_strtolower( $post_type->labels->singular_name ) :
 			strtolower( $post_type->labels->singular_name );
 
 		wp_nonce_field( 'whatsappsupport_data', 'whatsappsupport_nonce' );
 		?>
-			<p>
-				<label for="whatsappsupport_message"><?php _e( 'Call to action', 'whatsapp-support' ); ?></label><br>
-				<textarea name="whatsappsupport_message" rows="2" class="large-text"><?php echo $metadata['message_text']; ?></textarea>
-			</p>
-			<p>
-				<label for="whatsappsupport_message_send"><?php _e( 'Message', 'whatsapp-support' ); ?></label><br>
-				<textarea name="whatsappsupport_message_send" rows="2" class="large-text"><?php echo $metadata['message_send']; ?></textarea>
-			</p>
-			<p>
-				<input type="checkbox" name="whatsappsupport_hide" id="whatsappsupport_hide" value="1" <?php echo $metadata['hide'] ? 'checked' : ''; ?>>
-				<label for="whatsappsupport_hide"><?php printf( __( 'Hide on this %s', 'whatsapp-support' ), $post_type_name ); ?></label>
-			</p>
+        <p>
+            <label for="whatsappsupport_message"><?php _e( 'Call to action', 'whatsapp-support' ); ?></label><br>
+            <textarea name="whatsappsupport_message" rows="2" class="large-text"><?php echo $metadata['message_text']; ?></textarea>
+        </p>            <p>
+            <label for="whatsappsupport_message_send"><?php _e( 'Message', 'whatsapp-support' ); ?></label><br>
+            <textarea name="whatsappsupport_message_send" rows="2" class="large-text"><?php echo $metadata['message_send']; ?></textarea>
+        </p>            <p>
+            <input type="checkbox" name="whatsappsupport_hide" id="whatsappsupport_hide" value="1" <?php echo $metadata['hide'] ? 'checked' : ''; ?>>
+            <label for="whatsappsupport_hide"><?php printf( __( 'Hide on this %s', 'whatsapp-support' ), $post_type_name ); ?></label>
+        </p>
 		<?php
 	}
 
@@ -378,8 +376,8 @@ class WhatsAppSupport_Admin {
 	 */
 	public function save_post( $post_id ) {
 		if ( wp_is_post_autosave( $post_id ) ||
-			 ! isset( $_POST['whatsappsupport_nonce'] ) ||
-			 ! wp_verify_nonce( $_POST['whatsappsupport_nonce'], 'whatsappsupport_data' ) ) {
+		     ! isset( $_POST['whatsappsupport_nonce'] ) ||
+		     ! wp_verify_nonce( $_POST['whatsappsupport_nonce'], 'whatsappsupport_data' ) ) {
 			return;
 		}
 
@@ -387,7 +385,7 @@ class WhatsAppSupport_Admin {
 		$metadata = array_filter( array(
 			'message_text' => trim( $_POST['whatsappsupport_message'] ),
 			'message_send' => trim( $_POST['whatsappsupport_message_send'] ),
-			'hide' => isset( $_POST['whatsappsupport_hide'] ) ? 1 : 0,
+			'hide'         => isset( $_POST['whatsappsupport_hide'] ) ? 1 : 0,
 		) );
 
 		if ( count( $metadata ) ) {

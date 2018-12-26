@@ -18,10 +18,13 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Currently plugin version.
+ * Plugin Defines.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
 define( 'WHATSAPPSUPPORT_VERSION', '1.0' );
+define( 'WHATSAPPSUPPORT_DIR', plugin_dir_path( __FILE__ ) );
+define( 'WHATSAPPSUPPORT_URL', plugin_dir_url( __FILE__ ) );
+
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -44,4 +47,5 @@ function run_whatsappsupport() {
 	$plugin->run();
 
 }
+
 run_whatsappsupport();
