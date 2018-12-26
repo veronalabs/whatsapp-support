@@ -42,12 +42,14 @@ Options:
 = I can't see the button or it's over / under another thing =
 
 You can change the position of the button so that nothing covers it by adding this CSS in *Appearance > Customize > Custom CSS*:
-`.whatsappsupport { z-index:9999; }`
+
+	.whatsappsupport { z-index:9999; }
+
 Greater values of z-index are left over, the default value is 400.
 
 = What about GDPR? =
 
-WhatsApp Support don't save any personal data and don't use cookies.
+WhatsApp Support doesn't save any personal data and doesn't use cookies.
 
 == Screenshots ==
 
@@ -55,6 +57,11 @@ WhatsApp Support don't save any personal data and don't use cookies.
 2. Button on desktop.
 3. Call to action on desktop.
 4. Button and call to action on mobile.
+
+== Screenshots ==
+1. WhatsApp icon.
+2. WhatsApp Preview message.
+3. Setting page.
 
 == Changelog ==
 = 1.1 =
