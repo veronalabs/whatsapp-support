@@ -58,7 +58,7 @@ WhatsApp Support don't save any personal data and don't use cookies.
 
 == Changelog ==
 = 1.1 =
-* First version
+* Fixed: Store telephone number in setting page.
 
 = 1.0 =
 * First version
