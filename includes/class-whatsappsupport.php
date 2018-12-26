@@ -12,7 +12,6 @@
  * @since      1.0.0
  * @package    WhatsAppSupport
  * @subpackage WhatsAppSupport/includes
- * @author     Creame <hola@crea.me>
  */
 class WhatsAppSupport {
 

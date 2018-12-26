@@ -3,7 +3,7 @@
  * Plugin Name:       WP WhatsApp Support
  * Plugin URI:        https://wordpress.org/plugins/whatsapp-support/
  * Description:       Add support to your clients directly with WhatsApp.
- * Version:           1.0
+ * Version:           1.1
  * Author:            VeronaLabs
  * Author URI:        https://veronalabs.com/
  * License:           GPL-2.0+
@@ -18,10 +18,13 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Currently plugin version.
+ * Plugin Defines.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
-define( 'WHATSAPPSUPPORT_VERSION', '1.0' );
+define( 'WHATSAPPSUPPORT_VERSION', '1.1' );
+define( 'WHATSAPPSUPPORT_DIR', plugin_dir_path( __FILE__ ) );
+define( 'WHATSAPPSUPPORT_URL', plugin_dir_url( __FILE__ ) );
+
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -44,4 +47,5 @@ function run_whatsappsupport() {
 	$plugin->run();
 
 }
+
 run_whatsappsupport();

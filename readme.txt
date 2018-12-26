@@ -1,11 +1,11 @@
 === WP WhatsApp Support ===
-Contributors: mostafa.s1990
+Contributors: mostafa.s1990, ghasemi71ir, mehrshaddarzi
 Donate link: https://soufi.me/donate
 Tags: whatsapp, button, chat, support, contact
 Requires at least: 3.0.1
 Tested up to: 4.9.4
 Requires PHP: 5.3
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,5 +57,8 @@ WhatsApp Support don't save any personal data and don't use cookies.
 4. Button and call to action on mobile.
 
 == Changelog ==
+= 1.1 =
+* First version
+
 = 1.0 =
 * First version

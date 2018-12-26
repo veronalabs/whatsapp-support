@@ -8,8 +8,7 @@
  *
  * @since      1.0.0
  * @package    WhatsAppSupport
- * @subpackage WhatsAppSupport/includes
- * @author     Creame <hola@crea.me>
+ * @subpackage WhatsAppSupport/includes>
  */
 class WhatsAppSupport_i18n {
 
